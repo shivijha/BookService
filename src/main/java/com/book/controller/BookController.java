@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.cloud.openfeign.FeignClient;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/books")
+@FeignClient(name = "BOOK-SERVICE")
 public class BookController {
 
     @Autowired
@@ -64,26 +65,26 @@ public class BookController {
     }
     
     @GetMapping("/byName")
-    public ResponseEntity<List<Book>> getBooksByName(@RequestParam(name = "name", required = true)String name) {
+    public ResponseEntity<List<Book>> getBooksByName(@RequestParam(value = "name", required = true)String name) {
     	List<Book> bookByName = bookService.getBooksByName(name);
         return ResponseEntity.ok(bookByName);
     }
 
     @GetMapping("/byGenre")
-    public ResponseEntity<List<Book>> getBooksByGenre(@RequestParam(name = "genre", required = true)String genre) {
+    public ResponseEntity<List<Book>> getBooksByGenre(@RequestParam(value = "genre", required = true)String genre) {
     	List<Book> bookByGenre = bookService.getBooksByGenre(genre);
         return ResponseEntity.ok(bookByGenre);
     }
 
 
     @GetMapping("/byPrice")
-    public ResponseEntity<List<Book>> getBooksByPriceLessThan(@RequestParam(name = "price", required = true)Integer price) {
+    public ResponseEntity<List<Book>> getBooksByPriceLessThan(@RequestParam(value = "price", required = true)Integer price) {
     	List<Book> bookByPrice = bookService.getBooksByPriceLessThan(price);
         return ResponseEntity.ok(bookByPrice);
     }
     
     @GetMapping("/byAuthor")
-    public ResponseEntity<List<Book>> getBooksByAuthor(@RequestParam(name = "author", required = true)String author) {
+    public ResponseEntity<List<Book>> getBooksByAuthor(@RequestParam(value = "author", required = true)String author) {
     	List<Book> bookByAuthor = bookService.getBooksByAuthor(author);
         return ResponseEntity.ok(bookByAuthor);
     }
@@ -91,8 +92,8 @@ public class BookController {
     
     @GetMapping("/byAuthorandGenre")
     public ResponseEntity<List<Book>> getBooksByAuthorAndGenre(
-    		@RequestParam(name = "author", required = true)String author,
-    		@RequestParam(name = "genre", required = true)String genre) {
+    		@RequestParam(value = "author", required = true)String author,
+    		@RequestParam(value = "genre", required = true)String genre) {
     	List<Book> bookByAuthorandGenre = bookService.getBooksByAuthorAndGenre(author,genre);
         return ResponseEntity.ok(bookByAuthorandGenre);
     }

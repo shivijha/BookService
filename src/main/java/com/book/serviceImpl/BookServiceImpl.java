@@ -5,6 +5,8 @@ import com.book.exception.BookNotFoundException;
 import com.book.payload.BookDto;
 import com.book.repo.BookRepository;
 import com.book.repo.UserRepository;
+//import com.book.service.BookService;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -86,7 +88,7 @@ public class BookServiceImpl {
     }
    
     public List<Book> getBooksByName(String name) {
-        return bookRepository.findByName(name);
+        return bookRepository.findByTitle(name);
     }
 
     public List<Book> getBooksByGenre(String genre) {
