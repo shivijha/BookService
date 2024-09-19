@@ -1,5 +1,6 @@
 package com.book.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -12,12 +13,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Book {
-    @Id @GeneratedValue
+    
+    @Id
+    @GeneratedValue
     private Integer id;
+    
+    @Column(nullable = false)
     private String title;
+    
+    @Column(nullable = false)
     private String author;
+    
+    @Column(nullable = false)
     private String genre;
+    
+    @Column(nullable = false)
     private Integer price; 
-    // Getters and Setters
 }
-
