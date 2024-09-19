@@ -2,8 +2,8 @@ name: booklist
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
-  JAVA_VERSION: 17
-  AZURE_SUBSCRIPTION: c70085e6-c3ce-4d50-b40c-d03cb762d680
+  JAVA_VERSION: 22
+  AZURE_SUBSCRIPTION: eb78b1af-ed9c-48ff-8876-77b63dccc3b9
 
 jobs:
   deploy_to_production:
@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Github Action
         uses: actions/checkout@v2
         
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
+      - name: Set up JDK 22
         uses: actions/setup-java@v1
         with:
-          java-version: ${{ env.JAVA_VERSION }}
+          java-version: 22
 
       - name: maven build, clean
         run: |
@@ -30,9 +30,9 @@ jobs:
       - name: deploy to production with artifact
         uses: azure/spring-cloud-deploy@v1
         with:
-          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          azure-subscription: eb78b1af-ed9c-48ff-8876-77b63dccc3b9
           action: Deploy
           service-name: spring-blog
           app-name: spring-blog
           use-staging-deployment: false
-          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+          package: '*.jar'

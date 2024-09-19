@@ -12,11 +12,11 @@ import com.book.payload.LoginUserDto;
 import com.book.payload.RegisterUserDto;
 import com.book.serviceImpl.AuthenticationService;
 import com.book.serviceImpl.JwtService;
-import org.springframework.cloud.openfeign.FeignClient;
+//import org.springframework.cloud.openfeign.FeignClient;
 
 @RequestMapping("/auth")
 @RestController
-@FeignClient(name = "BOOK-SERVICE")
+//@FeignClient(name = "BOOK-SERVICE")
 public class AuthenticationController {
 	private final JwtService jwtService;
 
