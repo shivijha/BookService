@@ -21,5 +21,8 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 	
 	@Query("SELECT b FROM Book b WHERE b.author = :author AND b.genre = :genre")
 	List<Book> findByAuthorAndGenre(@Param("author") String author, @Param("genre") String genre);
+	
+	@Query("Select b from Book b Ordered By b.title")
+	List<Book> findBookOrderedByTitle();
 
 }

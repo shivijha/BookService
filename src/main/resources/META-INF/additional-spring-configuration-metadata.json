@@ -13,5 +13,15 @@
     "name": "feign.hystrix.enabled",
     "type": "java.lang.String",
     "description": "A description for 'feign.hystrix.enabled'"
+  },
+  {
+    "name": "cloud.configfail-fast",
+    "type": "java.lang.String",
+    "description": "A description for 'cloud.configfail-fast'"
+  },
+  {
+    "name": "cloud.config.uri",
+    "type": "java.lang.String",
+    "description": "A description for 'cloud.config.uri'"
   }
 ]}

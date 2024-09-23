@@ -97,4 +97,10 @@ public class BookController {
     	List<Book> bookByAuthorandGenre = bookService.getBooksByAuthorAndGenre(author,genre);
         return ResponseEntity.ok(bookByAuthorandGenre);
     }
+    
+    @GetMapping("")
+    public ResponseEntity<List<Book>> getBookOrderByTitle(){
+    	List<Book> books = bookService.getBookOrderByTitle();
+    	return ResponseEntity.ok(books);
+    }
 }
