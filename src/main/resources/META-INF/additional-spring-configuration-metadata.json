@@ -10,18 +10,8 @@
     "description": "A description for 'security.jwt.expiration-time'"
   },
   {
-    "name": "feign.hystrix.enabled",
+    "name": "spring.cloud.config.fail-fast",
     "type": "java.lang.String",
-    "description": "A description for 'feign.hystrix.enabled'"
-  },
-  {
-    "name": "cloud.configfail-fast",
-    "type": "java.lang.String",
-    "description": "A description for 'cloud.configfail-fast'"
-  },
-  {
-    "name": "cloud.config.uri",
-    "type": "java.lang.String",
-    "description": "A description for 'cloud.config.uri'"
+    "description": "A description for 'spring.cloud.config.fail-fast'"
   }
 ]}
